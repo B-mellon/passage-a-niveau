@@ -4,6 +4,8 @@
 
 # <em style="font-style:normal;color:orange"> Variation luminosité leds </em>
 
+![leds](img/leds.gif)
+
 ## Leds 
 
 - Annode : patte longe, connectée du côté du port numérique
