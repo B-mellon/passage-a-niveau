@@ -98,6 +98,8 @@ void loop(){
 
 # <em style="font-style:normal;color:orange"> Servo moteur </em>
 
+![servomoteurs](img/servo.gif)
+
 ## Servomoteur 
 
 - orange = signal 
@@ -106,11 +108,42 @@ void loop(){
 
 ## Connections 
 
-
-
+- brancher le + sur 5v
+- brancher le - sur GND 
+- brancher les entrées de contrôle des 2 servomoteurs en parallèle sur le pin de contrôle arduino
 
 ## Code 
 
-```c++
+- Se commande par variation de la période du signal sur le port in du servo moteur
+- La librarie servo de arduino fait le mapping entre l'angle du servomoteur souhaité et le signal correspondant automatiquement
 
+```c++
+#include <Servo.h>
+Servo servos_barrieres;
+#define portArduino_Barrieres 3
+#define angleOuvert 0
+#define angleFerme 90
+
+
+void ouvrir(){
+  servos_barrieres.write(angleOuvert);
+}
+void fermer(){
+  servos_barrieres.write(angleFerme);
+}
+
+
+void setup(){
+  servos_barrieres.attach(portArduino_Barrieres);
+} 
+
+void loop(){
+  ouvrir();
+  delay(1000);
+  fermer();
+  delay(1000);
+}
 ```
+
+# <em style="font-style:normal;color:orange"> Capteurs de présence </em>
+
